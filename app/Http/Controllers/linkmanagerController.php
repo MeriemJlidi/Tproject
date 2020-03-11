@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Resources\LinkResource;
+use App\Http\Resources\LinkResourceCollection;
 use App\weblink;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class linkmanagerController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +20,8 @@ class linkmanagerController extends Controller
     public function index()
     {
 
-        $data = weblink::latest()->paginate(5);
-        return view('index', compact('data'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-
+        $data = weblink::all();
+        return view('index',['data'=>$data]);
     }
 
     /**
@@ -44,7 +47,8 @@ class linkmanagerController extends Controller
             'link'    =>  'required',
             'title'     =>  'required',
             'img'         =>  'required|max:2048',
-            'dept'    =>  'required'
+            'dept'    =>  'required',
+            'credentials' =>  'required'
         ]);
 
         $image = $request->file('img');
@@ -53,13 +57,14 @@ class linkmanagerController extends Controller
         $image->move(public_path('images'), $new_name);
 
 
-        $selecteddept = $request->input('dept');
+        $categories= implode(', ', $request->dept);
 
         $form_data = array(
             'link'       =>   $request->link,
             'header'        =>   $request->title,
+            'departement'=>   $categories,
             'icon'            =>   $new_name,
-            'departement'=>   $selecteddept
+            'credentials'  =>   $request->credentials
         );
 
         weblink::create($form_data);
@@ -108,7 +113,6 @@ class linkmanagerController extends Controller
             $request->validate([
                 'link'    =>  'required',
                 'title'     =>  'required',
-                'dept'     =>  'required',
                 'img'         =>  'image|max:2048'
             ]);
 
@@ -120,15 +124,19 @@ class linkmanagerController extends Controller
             $request->validate([
                 'link'    =>  'required',
                 'title'     =>  'required',
-                'dept'     =>  'required'
+                'credentials'     =>  'required'
             ]);
         }
+
+        $categories= implode(', ', $request->dept);
 
         $form_data = array(
             'link'       =>   $request->link,
             'header'        =>   $request->title,
-            'departement'     =>  $request->dept,
-            'icon'            =>   $image_name
+            'departement'     =>  $categories,
+            'icon'            =>   $image_name,
+            'credentials'  =>   $request->credentials
+
         );
 
         weblink::whereId($id)->update($form_data);
@@ -151,5 +159,48 @@ class linkmanagerController extends Controller
 
     }
 
+    /**
+     * @param weblink $weblink
+     * @return LinkResource
+     */
+
+    public function showAPI (weblink $weblink) : LinkResource
+    {
+
+        return new LinkResource($weblink);
+    }
+
+    /**
+     * @param weblink $weblink
+     * @return LinkResourceCollection
+     */
+
+    public function showAllAPI () : LinkResourceCollection
+    {
+
+        return new LinkResourceCollection(weblink::paginate());
+    }
+
+
+    /**
+     * @param Collection $filters
+     * @return LinkResource
+     */
+
+    protected $allowedFilteringParameters = ['credentials'];
+
+    protected function filter(Collection $filters) : LinkResource
+    {
+
+
+
+        $query = QueryBuilder::for(weblink::class)
+            ->allowedFilters(['credentials'])
+            ->get();
+
+
+        return new LinkResource ($query);
+
+    }
 
 }

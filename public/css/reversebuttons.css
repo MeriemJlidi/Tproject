@@ -1,0 +1,80 @@
+button.reverse-pink-button{
+    padding: 7px 20px !important;
+    border-radius: 5px;
+    background-color: #DE176D;
+    color:white;
+    border-radius: 5px;
+    transition: 0.8s;
+    font-weight: bold;
+}
+
+button.reverse-pink-button a {
+    text-decoration: none;
+    color: white;
+
+}
+
+button.reverse-pink-button:hover{
+    background-color: white;
+    border: 1px solid #DE176D;
+    color: #DE176D;
+    cursor: pointer;
+
+}
+button.reverse-pink-button:hover a{
+    color: #DE176D;
+    font-weight: bold;
+}
+
+
+
+a.reverse-orange-button{
+    padding: 7px 20px !important;
+    border-radius: 5px;
+    background-color: #FD9526;
+    color:white;
+    border-radius: 5px;
+    transition: 0.8s;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+a.reverse-orange-button:hover{
+    background-color: white;
+    border: 1px solid #FD9526;
+    color: #FD9526;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+
+button.reverse-petrol-button{
+    padding: 7px 20px !important;
+    border-radius: 5px;
+    background-color: #179D8F;
+    color:white;
+    border-radius: 5px;
+    transition: 0.8s;
+    font-weight: bold;
+}
+
+button.reverse-petrol-button a {
+    text-decoration: none;
+    color: white;
+
+}
+
+button.reverse-petrol-button:hover{
+    background-color: white;
+    border: 1px solid #179D8F;
+    color: #179D8F;
+    cursor: pointer;
+
+}
+button.reverse-petrol-button:hover a{
+    color: #179D8F;
+    font-weight: bold;
+}
