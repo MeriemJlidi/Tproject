@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Resources\LinkResource;
 use App\Http\Resources\LinkResourceCollection;
-use App\weblink;
+use App\Weblink;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +20,7 @@ class linkmanagerController extends Controller
     public function index()
     {
 
-        $data = weblink::all();
+        $data = Weblink::all();
         return view('index',['data'=>$data]);
     }
 
@@ -67,7 +67,7 @@ class linkmanagerController extends Controller
             'credentials'  =>   $request->credentials
         );
 
-        weblink::create($form_data);
+        Weblink::create($form_data);
 
         return redirect('links')->with('success', 'Data Added successfully.');
 
@@ -81,7 +81,7 @@ class linkmanagerController extends Controller
      */
     public function show($id)
     {
-        $data = weblink::findOrFail($id);
+        $data = Weblink::findOrFail($id);
         return view('display', compact('data'));
     }
 
@@ -93,7 +93,7 @@ class linkmanagerController extends Controller
      */
     public function edit($id)
     {
-        $data = weblink::findOrFail($id);
+        $data = Weblink::findOrFail($id);
         return view('edit', compact('data'));
     }
 
@@ -139,7 +139,7 @@ class linkmanagerController extends Controller
 
         );
 
-        weblink::whereId($id)->update($form_data);
+        Weblink::whereId($id)->update($form_data);
 
         return redirect('links')->with('success', 'Data is successfully updated');
     }
@@ -152,7 +152,7 @@ class linkmanagerController extends Controller
      */
     public function destroy($id)
     {
-        $data = weblink::findOrFail($id);
+        $data = Weblink::findOrFail($id);
         $data->delete();
 
         return redirect('links')->with('success', 'Data is successfully deleted');
@@ -164,7 +164,7 @@ class linkmanagerController extends Controller
      * @return LinkResource
      */
 
-    public function showAPI (weblink $weblink) : LinkResource
+    public function showAPI (Weblink $weblink) : LinkResource
     {
 
         return new LinkResource($weblink);
@@ -178,7 +178,7 @@ class linkmanagerController extends Controller
     public function showAllAPI () : LinkResourceCollection
     {
 
-        return new LinkResourceCollection(weblink::paginate());
+        return new LinkResourceCollection(Weblink::paginate());
     }
 
 
@@ -194,7 +194,7 @@ class linkmanagerController extends Controller
 
 
 
-        $query = QueryBuilder::for(weblink::class)
+        $query = QueryBuilder::for(Weblink::class)
             ->allowedFilters(['credentials'])
             ->get();
 
