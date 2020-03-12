@@ -13,7 +13,16 @@ class Weblinks extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('weblinks', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('link');
+            $table->string('header');
+            $table->string('departement');
+            $table->string('icon');
+            $table->string('credentials');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**
