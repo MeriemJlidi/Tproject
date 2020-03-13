@@ -19,7 +19,7 @@ html {
     grid-gap: 3.5rem;
     max-width: 140rem;
     margin: 0 auto;
-    padding: 0 50px 7rem 91px;
+    padding: 0 7rem 7rem 7rem;
 }
 .headline {
     grid-column-start: 1;
