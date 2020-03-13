@@ -42,7 +42,7 @@
 
 	<div class="grid">
 		<div class="headline">
-	  	  <h1>Web-Links PVG Partneragenturen</h1>
+	  	  <h2>Web-Links PVG Partneragenturen</h2>
   		</div>
 
 	  <a href="https://bsp.detemobil.de/" target="_blank">
