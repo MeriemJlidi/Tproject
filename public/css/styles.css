@@ -27,30 +27,30 @@ html {
 }
 
 
-@media only screen and (max-width: 600px) {
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 1.5rem;
-        padding: 0 3.5rem 10rem 3.5rem;
-    }
-    .headline {
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
+@media only screen and (min-width:601px) and (max-width: 900px) {
+	.grid {
+	    display: grid;
+	    grid-template-columns: repeat(2, 1fr);
+	    grid-gap: 3.5rem;
+		padding: 0 7rem 7rem 7rem;
+	}
+	.headline {	
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
 }
 
-@media only screen and (max-width: 300px) {
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 1rem;
-        padding: 0 1.75rem 5rem 1.75rem;
-    }
-    .headline {
-        grid-column-start: 1;
-        grid-column-end: 1;
-    }
+@media only screen and (max-width: 600px) {
+	.grid {
+	    display: grid;
+	    grid-template-columns: repeat(1, 1fr);
+	    grid-gap: 2rem;
+		padding: 0 3.5rem 10rem 3.5rem;
+	}
+	.headline {	
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
 }
 
 
