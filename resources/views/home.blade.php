@@ -318,5 +318,8 @@
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <!-- Scripts-->
+  <script src="js/app.js"> </script>
 </body>
 </html>
