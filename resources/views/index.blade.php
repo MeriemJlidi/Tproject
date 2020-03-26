@@ -4,7 +4,7 @@
 <script src="https://kit.fontawesome.com/c63ff72a48.js" crossorigin="anonymous"></script>
 @section('main')
 
-    <link rel="icon" type="images/png" href="public/images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
     <nav class="navbar" style="padding-top: 0px;padding-bottom: 0px">
         <div class="logo">
