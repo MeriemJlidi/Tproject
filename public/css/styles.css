@@ -9,11 +9,17 @@ html {
 }
 .logo svg {
     fill: rgb(255,255,255);    
-    background-color: rgb(226,0,116);
-    
+    background-color: rgb(226,0,116);    
+}
+
+.logo h2{
+    display: inline-block;
+    position: absolute;
+    margin-top: 70px;
 }
 
 .grid {
+    margin-top:100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 3.5rem;
