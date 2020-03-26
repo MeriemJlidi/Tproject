@@ -5,10 +5,11 @@ html {
 .logo {   
     width: 7rem;
     height: 7rem;
+    margin-bottom: 70px;
 }
 .logo svg {
-    fill: rgb(255,255,255);
-    display:block;
+    fill: rgb(255,255,255);    
+    display: initial;
     background-color: rgb(226,0,116);
     
 }
