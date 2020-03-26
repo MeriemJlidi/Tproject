@@ -9,6 +9,12 @@ html {
 }
 .logo svg {
     fill: rgb(255,255,255);
+    display:block;
+    
+}
+
+.logo h2 {
+    display:inline-block;
 }
 
 .grid {
