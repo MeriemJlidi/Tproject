@@ -221,6 +221,4 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   
   <!-- Scripts-->
-  <script src="js/app.js"/>
-</body>
-</html>
+  <script src="js/app.js" />
