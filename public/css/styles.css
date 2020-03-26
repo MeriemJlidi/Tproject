@@ -2,19 +2,23 @@ html {
     font-size: 10px;
 }
 
-.logo {
-    background-color: rgb(226,0,116);
+.logo {   
     width: 7rem;
     height: 7rem;
 }
 .logo svg {
     fill: rgb(255,255,255);
     display:block;
+    background-color: rgb(226,0,116);
     
 }
 
 .logo h2 {
-    display:inline-block;
+    
+    display: inline-block;
+    margin-top: 0px;
+    position: absolute;
+    margin-left: 30px;
 }
 
 .grid {
