@@ -24,7 +24,6 @@ html {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 3.5rem;
     max-width: 140rem;
-    margin: 0 auto;
     padding: 0 7rem 7rem 7rem;
 }
 .headline {
